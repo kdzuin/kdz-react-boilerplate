@@ -1,0 +1,48 @@
+//
+// Wrapper for buttons
+//
+// @maintainer: Konstantin Dzuin (kdzuin@gmail.com)
+//
+
+$button-group-vertical-vgap: 10px;
+$button-group-horizontal-vgap: 10px;
+$button-group-horizontal-hgap: 10px;
+
+.button-group {
+    display: block;
+}
+
+.button-group__item {
+    display: block;
+}
+
+.button-group--vertical {
+    display: flex;
+    flex-direction: column;
+
+    & > .button-group__item + .button-group__item {
+        margin-top: $button-group-vertical-vgap;
+    }
+}
+
+.button-group--horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -$button-group-horizontal-hgap;
+    margin-bottom: -$button-group-horizontal-vgap;
+
+    &:empty {
+        margin: 0;
+    }
+
+    & > .button-group__item {
+        margin-right: $button-group-horizontal-hgap;
+        margin-bottom: $button-group-horizontal-vgap;
+    }
+}
+
+.button-group--centered {
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,179 @@
+//
+// Layout composition
+//
+// @maintainer: Konstantin Dzuin (kdzuin@gmail.com)
+//
+
+@import "Layout.reference";
+
+.layout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 100%;
+    background: #fff;
+
+    @media print {
+        display: block;
+    }
+}
+
+.layout__header {
+    flex: 0 0 auto;
+
+    @media print {
+        display: none;
+    }
+}
+
+.layout__content {
+    position: relative;
+    flex: 0 0 auto;
+    max-width: $layout-max-width;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.layout__content--wide {
+    max-width: none;
+}
+
+.layout__content--hpadded {
+    padding-right: $layout-gap;
+    padding-left: $layout-gap;
+}
+
+.layout__content--vpadded {
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+    & + & {
+        padding-top: 0;
+    }
+
+    @media (min-width: 770px) {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+}
+
+.layout__content--centered {
+    text-align: center;
+}
+
+.layout__content--promo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+.layout__footer {
+    flex: 0 0 auto;
+    margin-top: auto;
+
+    @media print {
+        display: none;
+    }
+}
+
+.layout__footer--hpadded {
+    padding-right: $layout-gap;
+    padding-left: $layout-gap;
+}
+
+.layout__footer--vpadded {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.layout__content--vpadded + .layout__footer--vpadded {
+    padding-top: 5px;
+}
+
+
+// Layout variations
+//
+
+.layout--centered-content > .layout__content {
+    flex: 0 0 auto;
+    margin-top: auto;
+}
+
+.layout--centered-content > .layout__content:last-of-type {
+    margin-bottom: auto;
+}
+
+.layout--stretched-content > .layout__content {
+    flex: 1 1 auto;
+}
+
+
+// Extra sections (optional)
+//
+
+.layout__sections {
+    display: block;
+
+    @media (min-width: 770px) {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    @media print {
+        display: block;
+    }
+}
+
+.layout__main {
+    display: block;
+
+    @media (min-width: 770px) {
+        display: block;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+}
+
+.layout__sidebar {
+    display: block;
+
+    @media (min-width: 770px) {
+        display: block;
+        flex: 0 0 auto;
+        width: $layout-sidebar-width;
+    }
+    @media print {
+        display: block;
+        width: 100%;
+    }
+}
+
+.layout__sidebar--sticky {
+    @media (min-width: 770px) {
+        @supports (position: sticky) {
+            position: sticky;
+            top: ($layout-header-height + 30px);
+        }
+    }
+}
+
+.layout__sidebar + .layout__main,
+.layout__main + .layout__sidebar {
+    margin-top: 35px;
+
+    @media (min-width: 770px) {
+        margin-top: 0;
+        margin-left: 95px;
+    }
+    @media print {
+        margin-top: 30px;
+        margin-left: 0;
+    }
+}

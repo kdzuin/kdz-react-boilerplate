@@ -1,0 +1,195 @@
+//
+// General typography
+//
+// @maintainer: Konstantin Dzuin (kdzuin@gmail.com)
+//
+
+@import 'typography.reference';
+
+@font-face {
+    font-weight: 400;
+    font-family: Roboto;
+    src: local('sans-serif');
+}
+@font-face {
+    font-weight: 600;
+    font-family: Roboto;
+    src: local('sans-serif-medium');
+}
+
+body {
+    font-weight: 400;
+    font-size: $mw-base-font-size;
+    line-height: $mw-base-line-height;
+    font-family: $font-family-base;
+    text-rendering: optimizeLegibility;
+
+    .font-ready & {
+        font-family: $font-family-custom;
+    }
+
+    @media (min-width: 770px) {
+        font-size: $dw-base-font-size;
+        line-height: $dw-base-line-height;
+    }
+}
+
+
+strong,
+b {
+    font-weight: 600;
+}
+
+button,
+input,
+select,
+textarea {
+    font-weight: 400;
+    font-size: $mw-base-font-size;
+    line-height: $mw-base-line-height;
+    font-family: $font-family-base;
+
+    .font-ready & {
+        font-family: $font-family-custom;
+    }
+
+    @media (min-width: 770px) {
+        font-size: $dw-base-font-size;
+        line-height: $dw-base-line-height;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: $mw-header1-font-size;
+    line-height: $mw-header1-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-header1-font-size;
+        line-height: $dw-header1-line-height;
+    }
+}
+
+.h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: $mw-header2-font-size;
+    line-height: $mw-header2-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-header2-font-size;
+        line-height: $dw-header2-line-height;
+    }
+}
+
+.h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: $mw-header3-font-size;
+    line-height: $mw-header3-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-header3-font-size;
+        line-height: $dw-header3-line-height;
+    }
+}
+
+.p {
+    margin: 0;
+    padding: 0;
+    font-size: $mw-base-font-size;
+    line-height: $mw-base-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-base-font-size;
+        line-height: $dw-base-line-height;
+    }
+}
+
+.small-text {
+    font-size: $mw-small-text-font-size;
+    line-height: $mw-small-text-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-small-text-font-size;
+        line-height: $dw-small-text-line-height;
+    }
+}
+
+.h1 + .h2,
+.h1 + ol,
+.h1 + ul,
+.h1 + .p,
+.h1 + .small-text {
+    margin-top: 15px;
+
+    @media (min-width: 770px) {
+        margin-top: 30px;
+    }
+}
+
+.h2 + .h3,
+.h2 + .p,
+.h2 + .small-text {
+    margin-top: 15px;
+
+    @media (min-width: 770px) {
+        margin-top: 22px;
+    }
+}
+
+.h3 + .p,
+.h3 + .small-text {
+    margin-top: 15px;
+}
+
+.p + .h3,
+.p + .h2,
+.small-text + .h3,
+.small-text + .h2 {
+    margin-top: 15px;
+
+    @media (min-width: 770px) {
+        margin-top: 22px;
+    }
+}
+
+.small-text + .small-text,
+.p + .p {
+    margin-top: 15px;
+}
+
+.p + ol,
+.p + ul,
+.small-text + ol,
+.small-text + ul {
+    margin-top: 22px;
+}
+
+
+ol + .h3,
+ol + .h2,
+ol + .p,
+ol + .small-text,
+ul + .h3,
+ul + .h2,
+ul + .p,
+ul + .small-text {
+    margin-top: 22px;
+}

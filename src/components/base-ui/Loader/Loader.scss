@@ -1,0 +1,48 @@
+//
+// Loader
+//
+// @maintainer: Konstantin Dzuin (kdzuin@gmail.com)
+//
+
+$loader-duration: 1.3s;
+$loader-dot-size: .5em;
+$loader-dot-gap: 1px;
+
+@keyframes loader-dot-pulse {
+    0% { transform: scale(1); }
+    25% { transform: scale(.5); }
+    75% { transform: scale(.5); }
+    100% { transform: scale(1); }
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader__dot {
+    @mixin apply-loader-dot-animation($name, $duration, $timing-function, $delay, $iteration-count) {
+        animation-name: $name;
+        animation-duration: $duration;
+        animation-timing-function: $timing-function;
+        animation-iteration-count: $iteration-count;
+        animation-delay: $delay;
+    }
+
+    display: block;
+    flex: 0 0 auto;
+    width: $loader-dot-size;
+    height: $loader-dot-size;
+    margin: 0;
+    border-radius: 50%;
+    background-color: currentColor;
+
+    &:nth-child(1) { @include apply-loader-dot-animation(loader-dot-pulse, $loader-duration, linear, 0, infinite); }
+    &:nth-child(2) { @include apply-loader-dot-animation(loader-dot-pulse, $loader-duration, linear, .26s, infinite); }
+    &:nth-child(3) { @include apply-loader-dot-animation(loader-dot-pulse, $loader-duration, linear, .53s, infinite); }
+
+    & + & {
+        margin-left: $loader-dot-gap;
+    }
+}

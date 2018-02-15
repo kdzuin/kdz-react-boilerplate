@@ -1,0 +1,47 @@
+//
+// Header
+//
+// @maintainer: Konstantin Dzuin (kdzuin@gmail.com)
+//
+
+@import 'base-ui/_common/colours.reference';
+@import 'base-ui/Layout/Layout.reference';
+
+.header {
+    display: block;
+    background: $colour-brand;
+}
+
+.header__content {
+    display: flex;
+    align-items: center;
+    max-width: $layout-max-width;
+    margin: auto;
+    padding: 10px $layout-gap;
+    color: $colour-brand-inverted;
+}
+
+.header__logo {
+    display: block;
+    flex: 0 0 auto;
+    color: #fff;
+}
+
+.header__navigation {
+    display: flex;
+    margin-left: auto;
+}
+
+.header__link {
+    color: #fff;
+    text-decoration: underline;
+
+    &.is-active {
+        text-decoration: none;
+        pointer-events: none;
+    }
+
+    & + & {
+        margin-left: $layout-gap;
+    }
+}
