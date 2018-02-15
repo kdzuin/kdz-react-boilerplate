@@ -12,6 +12,7 @@
 
 $button-border-width: 1px;
 $button-border-radius: 8px;
+$button-border-monochrome-colour: rgba(0, 0, 0, .15);
 
 $button-size-small: 32px;
 $button-size-medium: 40px;
@@ -184,7 +185,7 @@ button.button {
     background: $colour-base-inverted;
 
     &::before {
-        border: $button-border-width solid rgba(0, 0, 0, .15);
+        border: $button-border-width solid $button-border-monochrome-colour;
         opacity: 1;
         transition: border .2s, opacity .2s;
     }

@@ -18,9 +18,8 @@
 }
 
 body {
-    font-weight: 400;
-    font-size: $mw-base-font-size;
-    line-height: $mw-base-line-height;
+    @include apply-typography-paragraph();
+
     font-family: $font-family-base;
     text-rendering: optimizeLegibility;
 
@@ -34,7 +33,6 @@ body {
     }
 }
 
-
 strong,
 b {
     font-weight: 600;
@@ -44,18 +42,12 @@ button,
 input,
 select,
 textarea {
-    font-weight: 400;
-    font-size: $mw-base-font-size;
-    line-height: $mw-base-line-height;
+    @include apply-typography-paragraph();
+
     font-family: $font-family-base;
 
     .font-ready & {
         font-family: $font-family-custom;
-    }
-
-    @media (min-width: 770px) {
-        font-size: $dw-base-font-size;
-        line-height: $dw-base-line-height;
     }
 }
 
@@ -72,64 +64,35 @@ h6 {
 }
 
 .h1 {
+    @include apply-typography-header1();
+
     margin: 0;
     padding: 0;
-    font-weight: 600;
-    font-size: $mw-header1-font-size;
-    line-height: $mw-header1-line-height;
-
-    @media (min-width: 770px) {
-        font-size: $dw-header1-font-size;
-        line-height: $dw-header1-line-height;
-    }
 }
 
 .h2 {
+    @include apply-typography-header2();
+
     margin: 0;
     padding: 0;
-    font-weight: 600;
-    font-size: $mw-header2-font-size;
-    line-height: $mw-header2-line-height;
-
-    @media (min-width: 770px) {
-        font-size: $dw-header2-font-size;
-        line-height: $dw-header2-line-height;
-    }
 }
 
 .h3 {
+    @include apply-typography-header3();
+
     margin: 0;
     padding: 0;
-    font-weight: 600;
-    font-size: $mw-header3-font-size;
-    line-height: $mw-header3-line-height;
-
-    @media (min-width: 770px) {
-        font-size: $dw-header3-font-size;
-        line-height: $dw-header3-line-height;
-    }
 }
 
 .p {
+    @include apply-typography-paragraph();
+
     margin: 0;
     padding: 0;
-    font-size: $mw-base-font-size;
-    line-height: $mw-base-line-height;
-
-    @media (min-width: 770px) {
-        font-size: $dw-base-font-size;
-        line-height: $dw-base-line-height;
-    }
 }
 
 .small-text {
-    font-size: $mw-small-text-font-size;
-    line-height: $mw-small-text-line-height;
-
-    @media (min-width: 770px) {
-        font-size: $dw-small-text-font-size;
-        line-height: $dw-small-text-line-height;
-    }
+    @include apply-typography-small-text();
 }
 
 .h1 + .h2,

@@ -25,3 +25,62 @@ $mw-small-text-font-size: 14px;
 $mw-small-text-line-height: 22px;
 $dw-small-text-font-size: 14px;
 $dw-small-text-line-height: 22px;
+
+
+@mixin apply-font-family-custom() {
+    font-family: $font-family-base;
+
+    .font-ready & {
+        font-family: $font-family-custom;
+    }
+}
+@mixin apply-typography-header1() {
+    font-weight: 600;
+    font-size: $mw-header1-font-size;
+    line-height: $mw-header1-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-header1-font-size;
+        line-height: $dw-header1-line-height;
+    }
+}
+@mixin apply-typography-header2() {
+    font-weight: 600;
+    font-size: $mw-header2-font-size;
+    line-height: $mw-header2-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-header2-font-size;
+        line-height: $dw-header2-line-height;
+    }
+}
+@mixin apply-typography-header3() {
+    font-weight: 600;
+    font-size: $mw-header3-font-size;
+    line-height: $mw-header3-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-header3-font-size;
+        line-height: $dw-header3-line-height;
+    }
+}
+@mixin apply-typography-paragraph() {
+    font-weight: 400;
+    font-size: $mw-base-font-size;
+    line-height: $mw-base-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-base-font-size;
+        line-height: $dw-base-line-height;
+    }
+}
+@mixin apply-typography-small-text() {
+    font-weight: 400;
+    font-size: $mw-small-text-font-size;
+    line-height: $mw-small-text-line-height;
+
+    @media (min-width: 770px) {
+        font-size: $dw-small-text-font-size;
+        line-height: $dw-small-text-line-height;
+    }
+}
