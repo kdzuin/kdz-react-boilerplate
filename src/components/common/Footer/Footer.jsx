@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import './Footer.scss';
+import Routes from '../../../Routes';
 
 function Footer (props) {
 
@@ -24,6 +25,10 @@ function Footer (props) {
         isActive: 'is-active'
     };
 
+    const links = Routes.filter(function (item) {
+        return item.showInFooter;
+    });
+
     return (
         <div className={classnames.block}>
             <div className={classnames.content}>
@@ -31,12 +36,19 @@ function Footer (props) {
                     Footer
                 </div>
                 <div className={classnames.navigation}>
-                    <NavLink exact to="/" className={classnames.link} activeClassName={classnames.isActive}>
-                        MainPage
-                    </NavLink>
-                    <NavLink to="/hello" className={classnames.link} activeClassName={classnames.isActive}>
-                        HelloPage
-                    </NavLink>
+                    {links.map(function (item, key) {
+                        return (
+                            <NavLink
+                                exact={item.exact}
+                                to={item.url}
+                                className={classnames.link}
+                                activeClassName={classnames.isActive}
+                                key={key}
+                            >
+                                {item.label}
+                            </NavLink>
+                        )
+                    })}
                 </div>
 
             </div>

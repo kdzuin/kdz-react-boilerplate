@@ -1,22 +1,31 @@
-import React  from 'react';
+import React from 'react';
 import {
     BrowserRouter as Router,
     Route,
     Switch
 } from 'react-router-dom';
 
-import MainPage from '../MainPage/MainPage';
-import HelloPage from '../HelloPage/HelloPage';
+import Routes from '../../../Routes';
 
 function App () {
     return (
         <Router>
             <Switch>
-                <Route exact path="/" component={MainPage} />
-                <Route path="/hello" component={HelloPage} />
+                {Routes.map(function(route, key) {
+                    return (
+                        <Route
+                            exact={route.exact}
+                            path={route.url}
+                            component={route.component}
+                            key={key}
+                        />
+                    )
+                })}
             </Switch>
         </Router>
     )
 }
+
+App.Routes = Routes;
 
 export default App;
