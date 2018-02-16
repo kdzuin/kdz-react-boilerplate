@@ -91,14 +91,14 @@
 }
 
 .layout__footer--vpadded {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+    padding-top: $layout-mw-vertical-gap;
+    padding-bottom: $layout-mw-vertical-gap;
 
-.layout__content--vpadded + .layout__footer--vpadded {
-    padding-top: 5px;
+    @media (min-width: 770px) {
+        padding-top: $layout-dw-vertical-gap;
+        padding-bottom: $layout-dw-vertical-gap;
+    }
 }
-
 
 // Layout variations
 //
@@ -159,14 +159,14 @@
 
 .layout__sidebar + .layout__main,
 .layout__main + .layout__sidebar {
-    margin-top: 35px;
+    margin-top: $layout-mw-vertical-gap;
 
     @media (min-width: 770px) {
         margin-top: 0;
         margin-left: 95px;
     }
     @media print {
-        margin-top: 30px;
+        margin-top: $layout-mw-vertical-gap;
         margin-left: 0;
     }
 }
