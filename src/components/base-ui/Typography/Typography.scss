@@ -95,6 +95,15 @@ h6 {
     @include apply-typography-small-text();
 }
 
+ul,
+ol {
+    padding-left: 30px;
+
+    @media (min-width: 770px) {
+        padding-left: 44px;
+    }
+}
+
 .h1 + .h2,
 .h1 + ol,
 .h1 + ul,
