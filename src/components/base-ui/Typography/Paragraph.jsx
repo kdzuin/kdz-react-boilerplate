@@ -1,7 +1,7 @@
 import React from 'react';
 import Text from './Text';
 
-import './typography.scss';
+import './Typography.scss';
 
 function Paragraph (props) {
     return (

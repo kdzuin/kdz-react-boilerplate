@@ -4,7 +4,7 @@
 // @maintainer: Konstantin Dzuin (kdzuin@gmail.com)
 //
 
-@import 'typography.reference';
+@import 'Typography.reference';
 
 @font-face {
     font-weight: 400;
@@ -108,6 +108,8 @@ h6 {
 }
 
 .h2 + .h3,
+.h2 + ul,
+.h2 + ol,
 .h2 + .p,
 .h2 + .small-text {
     margin-top: 15px;
@@ -117,6 +119,8 @@ h6 {
     }
 }
 
+.h3 + ul,
+.h3 + ol,
 .h3 + .p,
 .h3 + .small-text {
     margin-top: 15px;
@@ -155,4 +159,10 @@ ul + .h2,
 ul + .p,
 ul + .small-text {
     margin-top: 22px;
+}
+
+
+ol li + li,
+ul li + li {
+    margin-top: 11px;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './typography.scss';
+import './Typography.scss';
 
 const propTypes = {
     inline: PropTypes.bool,
