@@ -49,6 +49,11 @@
 .layout__content--hpadded {
     padding-right: $layout-gap;
     padding-left: $layout-gap;
+
+    @supports (padding-right: calc(#{$layout-gap} + env(safe-area-inset-right))) {
+        padding-right: calc(#{$layout-gap} + env(safe-area-inset-right));
+        padding-left: calc(#{$layout-gap} + env(safe-area-inset-left));
+    }
 }
 
 .layout__content--vpadded {
