@@ -3,7 +3,7 @@ This is a boilerplate with some basic functionality to decorate and build the ba
 The project consists of the foundation with core components and 2 test pages to demonstrate
 the routing.
 
-##You can find the following components already prepared for you:
+## You can find the following components already prepared for you:
 * Layout
 * Icon
 * Button
