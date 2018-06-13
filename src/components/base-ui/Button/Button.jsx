@@ -1,11 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 
 import './Button.scss';
 import { Text } from '../Typography';
 import Loader from '../Loader/Loader';
+
+const flatten = object => {
+    return Object.assign( {}, ...function _flatten( objectBit, path = '' ) {
+        return [].concat(
+            ...Object.keys( objectBit ).map(
+                key => typeof objectBit[ key ] === 'object' ?
+                    _flatten( objectBit[ key ], `${ path }/${ key }` ) :
+                    ( { [ `${ path }/${ key }` ]: objectBit[ key ] } )
+            )
+        )
+    }( object ) );
+};
+
+const Size = {
+    SMALL: 'sm',
+    MEDIUM: 'md',
+    LARGE: 'lg',
+    XLARGE: 'xlg'
+};
+
+const Type = {
+    FILLED: 'filled',
+    STROKE: 'stroke',
+    TRANSPARENT: 'transparent',
+    MONOCHROME: 'monochrome'
+};
+
+const Color = {
+    Palette: {
+        PRIMARY: 'primary',
+        RED_CARROT: 'red-carrot',
+        PINK_ROSE: 'pink-rose',
+        YELLOW_SUN: 'yellow-sun',
+        GREEN_DEW: 'green-dew',
+        GREEN_GRASS: 'green-grass',
+        PURPLE_LAVANDA: 'purple-lavanda',
+        BLUE_SKY: 'blue-sky',
+        BLUE_RAIN: 'blue-rain',
+        GRAY_40: 'gray-40',
+        INHERITED: 'inherited'
+    }
+};
 
 const propTypes = {
     /** ```id``` for the dom-element */
@@ -17,20 +58,12 @@ const propTypes = {
         PropTypes.string,
         PropTypes.object
     ]),
-    /** ```Button.Type.FILLED``` */
-    type: function (props, propName, componentName) {
-        if (props[ propName ] && Object.values(Button.Type).indexOf(props[ propName ]) === -1) {
-            return new Error(`Incorrect value in '${propName}' prop.`);
-        }
-    },
-    /** ```Button.Size.MEDIUM``` */
-    size: function (props, propName, componentName) {
-        if (props[ propName ] && Object.values(Button.Size).indexOf(props[ propName ]) === -1) {
-            return new Error(`Incorrect value in '${propName}' prop.`);
-        }
-    },
+    /** Button Type from Button.Type enum (```Button.Type.FILLED```) */
+    type: PropTypes.oneOf(Object.values(flatten(Type))),
+    /** Button Size from Button.Size enum (```Button.Size.MEDIUM```) */
+    size: PropTypes.oneOf(Object.values(flatten(Size))),
     /** ```Button.Color.Palette.PRIMARY``` */
-    color: PropTypes.any,
+    color: PropTypes.oneOf(Object.values(flatten(Color))),
     /** Button widths depending on the content */
     narrow: PropTypes.bool,
     /** Lighter version of Button with round corners */
@@ -45,44 +78,10 @@ const propTypes = {
     isPressed: PropTypes.bool,
     /** Loading state */
     isLoading: PropTypes.bool,
-    /** Button can be transformed into ```<a/>``` link with ```href``` prop */
-    href: PropTypes.string,
-    /** To apply ```target="_blank"``` or not */
-    openInBlank: PropTypes.bool,
     /** Click event handler */
     onClick: PropTypes.func,
     /** Flag to disable CSS triggers */
     ignoreTriggers: PropTypes.bool
-};
-
-const Size = {
-    SMALL: 'button--sm',
-    MEDIUM: 'button--md',
-    LARGE: 'button--lg',
-    XLARGE: 'button--xlg'
-};
-
-const Type = {
-    FILLED: 'button--filled',
-    STROKE: 'button--stroke',
-    TRANSPARENT: 'button--transparent',
-    MONOCHROME: 'button--monochrome'
-};
-
-const Color = {
-    Palette: {
-        PRIMARY: 'button--color-primary',
-        RED_CARROT: 'button--color-red-carrot',
-        PINK_ROSE: 'button--color-pink-rose',
-        YELLOW_SUN: 'button--color-yellow-sun',
-        GREEN_DEW: 'button--color-green-dew',
-        GREEN_GRASS: 'button--color-green-grass',
-        PURPLE_LAVANDA: 'button--color-purple-lavanda',
-        BLUE_SKY: 'button--color-blue-sky',
-        BLUE_RAIN: 'button--color-blue-rain',
-        GRAY_40: 'button--color-gray-40',
-        INHERITED: 'button--color-inherited'
-    }
 };
 
 const defaultProps = {
@@ -109,17 +108,15 @@ function Button (props) {
         isHovered,
         isPressed,
         isLoading,
-        href,
-        openInBlank,
         onClick
     } = props;
 
     const classnames = {
         block: classNames({
             'button': true,
-            [ type ]: type,
-            [ size ]: size,
-            [ color ]: color,
+            [ `button--type-${type}` ]: type,
+            [ `button--size-${size}` ]: size,
+            [ `button--color-${color}` ]: color,
             'button--narrow': narrow,
             'button--light': light,
             'button--icon-only': icon && !text,
@@ -140,9 +137,7 @@ function Button (props) {
     };
 
     let ButtonTag = 'div';
-    if (!!href) {
-        ButtonTag = Link;
-    } else if (isRealButton) {
+    if (isRealButton) {
         ButtonTag = 'button';
     }
 
@@ -151,10 +146,8 @@ function Button (props) {
             id={id}
             className={classnames.block}
             disabled={isRealButton && isDisabled ? 'disabled' : null}
-            role={href ? '' : 'button'}
-            to={!isDisabled ? href : null}
+            role="button"
             onClick={!isDisabled ? onClick : null}
-            target={openInBlank ? '_blank' : null}
         >
             <span className={classnames.content}>
                 {icon ? (

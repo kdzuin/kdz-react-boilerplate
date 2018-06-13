@@ -27,7 +27,7 @@ function MainPage (props) {
                     <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, quo!</Paragraph>
                 </Layout.Content>
                 <Layout.Content vPadded={true} hPadded={true}>
-                    <Button text="Hello" href="/hello"/>
+                    <Button text="Hello" onClick={() => props.history.push('/hello')}/>
                 </Layout.Content>
                 <Layout.Footer>
                     <Footer/>

@@ -106,7 +106,7 @@ button.button {
 
 // SIZE
 
-.button--sm {
+.button--size-sm {
     min-width: $button-size-small;
     min-height: $button-size-small;
     padding-right: 15px;
@@ -115,7 +115,7 @@ button.button {
     line-height: 19px;
 }
 
-.button--md {
+.button--size-md {
     min-width: $button-size-medium;
     min-height: $button-size-medium;
     padding-right: 15px;
@@ -124,7 +124,7 @@ button.button {
     line-height: 19px;
 }
 
-.button--lg {
+.button--size-lg {
     min-width: $button-size-large;
     min-height: $button-size-large;
     padding-right: 20px;
@@ -133,7 +133,7 @@ button.button {
     line-height: 19px;
 }
 
-.button--xlg {
+.button--size-xlg {
     min-width: $button-size-xlarge;
     min-height: $button-size-xlarge;
     padding-right: 30px;
@@ -160,7 +160,7 @@ button.button {
 
 // TYPE
 
-.button--filled {
+.button--type-filled {
     border: none;
     background-color: currentColor;
 
@@ -170,17 +170,17 @@ button.button {
     }
 }
 
-.button--stroke {
+.button--type-stroke {
     border: $button-border-width solid currentColor;
     background: transparent;
 }
 
-.button--transparent {
+.button--type-transparent {
     border: none;
     background: transparent;
 }
 
-.button--monochrome {
+.button--type-monochrome {
     border: none;
     background: $colour-base-inverted;
 
@@ -200,7 +200,7 @@ button.button {
 // STATUS
 
 // pressed
-.button--filled {
+.button--type-filled {
     &::before {
         background-color: $colour-base-inverted;
     }
@@ -219,7 +219,7 @@ button.button {
     }
 }
 
-.button--monochrome {
+.button--type-monochrome {
     .trigger-button-hover:hover &:not(.trigger-ignore),
     &:hover,
     &.is-hovered {

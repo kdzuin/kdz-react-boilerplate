@@ -12,15 +12,6 @@ const { BrowserRouter } = require('react-router-dom');
             }}
         />
         <Button
-            text="Link"
-            href="https://badoo.com"
-        />
-        <Button
-            text="Link to _blank"
-            href="https://badoo.com"
-            openInBlank={true}
-        />
-        <Button
             text="Real Button"
             isRealButton={true}
         />
