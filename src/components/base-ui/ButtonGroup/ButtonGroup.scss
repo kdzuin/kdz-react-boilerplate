@@ -16,7 +16,7 @@ $button-group-horizontal-hgap: 10px;
     display: block;
 }
 
-.button-group--vertical {
+.button-group--layout-vertical {
     display: flex;
     flex-direction: column;
 
@@ -25,7 +25,7 @@ $button-group-horizontal-hgap: 10px;
     }
 }
 
-.button-group--horizontal {
+.button-group--layout-horizontal {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -42,7 +42,7 @@ $button-group-horizontal-hgap: 10px;
     }
 }
 
-.button-group--centered {
+.button-group--alignment-centered {
     justify-content: center;
     align-items: center;
 }

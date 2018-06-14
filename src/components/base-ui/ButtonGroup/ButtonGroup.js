@@ -5,18 +5,27 @@ import classNames from 'classnames';
 import './ButtonGroup.scss';
 
 const Layout = {
-    VERTICAL: 'button-group--vertical',
-    HORIZONTAL: 'button-group--horizontal'
+    VERTICAL: 'vertical',
+    HORIZONTAL: 'horizontal'
 };
 
 const Alignment = {
-    CENTERED: 'button-group--centered'
+    CENTERED: 'centered'
 };
 
 const propTypes = {
-    layout: PropTypes.any,
-    alignment: PropTypes.any,
-    children: PropTypes.any
+    /**
+     * Layout model for the Button Group: horizontal or vertical
+     */
+    layout: PropTypes.oneOf(Object.values(Layout)),
+    /**
+     * Horizontal alignment in the group
+     */
+    alignment: PropTypes.oneOf(Object.values(Alignment)),
+    /**
+     * Expecting `<Button />` elements
+     */
+    children: PropTypes.node.isRequired,
 };
 
 const defaultProps = {
@@ -33,8 +42,8 @@ function ButtonGroup (props) {
     const classnames = {
         block: classNames({
             'button-group': true,
-            [ layout ]: layout,
-            [ alignment ]: alignment
+            [ `button-group--layout-${layout}` ]: layout,
+            [ `button-group--alignment-${alignment}` ]: alignment,
         }),
         item: classNames({
             'button-group__item': true

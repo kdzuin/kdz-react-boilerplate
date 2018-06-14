@@ -5,18 +5,7 @@ import classNames from 'classnames';
 import './Button.scss';
 import { Text } from '../Typography';
 import Loader from '../Loader/Loader';
-
-const flatten = object => {
-    return Object.assign( {}, ...function _flatten( objectBit, path = '' ) {
-        return [].concat(
-            ...Object.keys( objectBit ).map(
-                key => typeof objectBit[ key ] === 'object' ?
-                    _flatten( objectBit[ key ], `${ path }/${ key }` ) :
-                    ( { [ `${ path }/${ key }` ]: objectBit[ key ] } )
-            )
-        )
-    }( object ) );
-};
+import Helpers from '../../common/Helpers';
 
 const Size = {
     SMALL: 'sm',
@@ -44,6 +33,7 @@ const Color = {
         BLUE_SKY: 'blue-sky',
         BLUE_RAIN: 'blue-rain',
         GRAY_40: 'gray-40',
+        WHITE: 'white',
         INHERITED: 'inherited'
     }
 };
@@ -59,11 +49,11 @@ const propTypes = {
         PropTypes.object
     ]),
     /** Button Type from Button.Type enum (```Button.Type.FILLED```) */
-    type: PropTypes.oneOf(Object.values(flatten(Type))),
+    type: PropTypes.oneOf(Object.values(Helpers.flatten(Type))),
     /** Button Size from Button.Size enum (```Button.Size.MEDIUM```) */
-    size: PropTypes.oneOf(Object.values(flatten(Size))),
+    size: PropTypes.oneOf(Object.values(Helpers.flatten(Size))),
     /** ```Button.Color.Palette.PRIMARY``` */
-    color: PropTypes.oneOf(Object.values(flatten(Color))),
+    color: PropTypes.oneOf(Object.values(Helpers.flatten(Color))),
     /** Button widths depending on the content */
     narrow: PropTypes.bool,
     /** Lighter version of Button with round corners */

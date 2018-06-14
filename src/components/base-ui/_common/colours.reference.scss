@@ -1,31 +1,35 @@
-// Palette
+// Colour tokens
 //
 
-$colour-black: #000;
-$colour-white: #fff;
-$colour-gray-60: #6a6a6a;
-$colour-gray-40: #949494;
-$colour-gray-24: #c4c4c4;
-$colour-gray-12: #e0e0e0;
-$colour-gray-3: #f6f6f6;
+$token-colour-primary: #7000e3;
+$token-colour-secondary: #ff661b;
+$token-colour-red-carrot: #ff661b;
+$token-colour-pink-rose: #ff4278;
+$token-colour-yellow-sun: #ffc831;
+$token-colour-green-dew: #00caa8;
+$token-colour-green-grass: #17d417;
+$token-colour-purple-lavanda: #7000e3;
+$token-colour-blue-sky: #1ab0ff;
+$token-colour-blue-rain: #2b8cfc;
 
-$colour-red-carrot: #ff661b;
-$colour-pink-rose: #ff4278;
-$colour-yellow-sun: #ffc831;
-$colour-green-dew: #00caa8;
-$colour-green-grass: #17d417;
-$colour-purple-lavanda: #7000e3;
-$colour-blue-sky: #1ab0ff;
-$colour-blue-rain: #2b8cfc;
+$token-colour-black: #000;
+$token-colour-gray-60: #6a6a6a;
+$token-colour-gray-40: #949494;
+$token-colour-gray-24: #c4c4c4;
+$token-colour-gray-12: #e0e0e0;
+$token-colour-gray-3: #f6f6f6;
+$token-colour-white: #fff;
+
+$token-colour-action-primary: #7000e3;
+$token-colour-action-destructive: #ff661b;
+
+$token-colour-border: #e0e0e0;
+
 
 // Assignments
 //
 
-$colour-base: $colour-black;
-$colour-base-inverted: $colour-white;
-$colour-brand: $colour-purple-lavanda;
-$colour-brand-inverted: $colour-white;
-
-$colour-primary: $colour-brand;
-
-$colour-border: #e0e0e0;
+$colour-base: $token-colour-black;
+$colour-base-inverted: $token-colour-white;
+$colour-brand: $token-colour-purple-lavanda;
+$colour-brand-inverted: $token-colour-white;

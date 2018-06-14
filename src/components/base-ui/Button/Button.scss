@@ -166,7 +166,16 @@ button.button {
 
     .button__content,
     .button__loader {
-        color: #fff;
+        color: $token-colour-white;
+    }
+
+    &.button--color-white {
+        background-color: $token-colour-white;
+
+        .button__content,
+        .button__loader {
+            color: $token-colour-primary;
+        }
     }
 }
 
@@ -282,14 +291,15 @@ button.button {
 // CHROME
 
 // color
-.button--color-primary { color: $colour-primary; }
-.button--color-red-carrot { color: $colour-red-carrot; }
-.button--color-pink-rose { color: $colour-pink-rose; }
-.button--color-yellow-sun { color: $colour-yellow-sun; }
-.button--color-green-dew { color: $colour-green-dew; }
-.button--color-green-grass { color: $colour-green-grass; }
-.button--color-purple-lavanda { color: $colour-purple-lavanda; }
-.button--color-blue-sky { color: $colour-blue-sky; }
-.button--color-blue-rain { color: $colour-blue-rain; }
-.button--color-gray-40 { color: $colour-gray-40; }
+.button--color-primary { color: $token-colour-primary; }
+.button--color-red-carrot { color: $token-colour-red-carrot; }
+.button--color-pink-rose { color: $token-colour-pink-rose; }
+.button--color-yellow-sun { color: $token-colour-yellow-sun; }
+.button--color-green-dew { color: $token-colour-green-dew; }
+.button--color-green-grass { color: $token-colour-green-grass; }
+.button--color-purple-lavanda { color: $token-colour-purple-lavanda; }
+.button--color-blue-sky { color: $token-colour-blue-sky; }
+.button--color-blue-rain { color: $token-colour-blue-rain; }
+.button--color-gray-40 { color: $token-colour-gray-40; }
+.button--color-white { color: $token-colour-white; }
 .button--color-inherited { color: inherit; }

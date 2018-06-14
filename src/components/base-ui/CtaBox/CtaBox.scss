@@ -1,0 +1,116 @@
+//
+// CTA BOX
+//
+
+@import '../_common/spacing.reference';
+@import '../_common/colours.reference';
+
+$cta-box-max-content-width-mobile: 375px - 2 * $token-spacing-gap;
+$cta-box-max-content-width-desktop: 769px - 2 * $token-spacing-gap;
+$cta-box-inset-space: $token-spacing-md;
+
+.cta-box {
+    position: relative;
+    text-align: center;
+}
+
+// MEDIA
+
+.cta-box__media {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto $token-spacing-xlg auto;
+}
+
+.cta-box__media--is-compact {
+    margin-bottom: $token-spacing-lg;
+}
+
+// HEADER
+
+.cta-box__header {
+    max-width: $cta-box-max-content-width-mobile;
+    margin: 0 auto $token-spacing-md auto;
+    padding: 0 $cta-box-inset-space;
+    color: $token-colour-black;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    @media (min-width: 769px) {
+        max-width: $cta-box-max-content-width-desktop;
+    }
+}
+
+.cta-box__header--is-light {
+    color: #fff;
+}
+
+.cta-box__header--is-compact {
+    margin-bottom: $token-spacing-sm;
+}
+
+// TEXT
+
+.cta-box__text {
+    max-width: $cta-box-max-content-width-mobile;
+    margin: 0 auto;
+    padding: 0 $cta-box-inset-space;
+    color: $token-colour-gray-60;
+
+    & + & {
+        margin-top: $token-spacing-lg;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+
+    @media (min-width: 769px) {
+        max-width: $cta-box-max-content-width-desktop;
+    }
+}
+
+.cta-box__text--is-light {
+    color: #fff;
+}
+
+.cta-box__text--is-compact {
+    margin-bottom: $token-spacing-md;
+}
+
+// CONTENT
+
+.cta-box__content {
+    display: flex;
+    justify-content: center;
+}
+
+// BUTTONS
+
+.cta-box__buttons {
+    max-width: $cta-box-max-content-width-mobile;
+    margin: $token-spacing-xlg auto 0 auto;
+    padding: 0 $cta-box-inset-space;
+
+    @media (min-width: 769px) {
+        max-width: $cta-box-max-content-width-desktop;
+    }
+}
+
+// ADDITIONAL
+
+.cta-box__additional {
+    max-width: $cta-box-max-content-width-mobile;
+    margin: $token-spacing-lg auto 0 auto;
+    padding: 0 $cta-box-inset-space;
+
+    @media (min-width: 769px) {
+        max-width: $cta-box-max-content-width-desktop;
+    }
+}
+
+.cta-box__additional--is-compact {
+    margin-top: $token-spacing-md;
+}
