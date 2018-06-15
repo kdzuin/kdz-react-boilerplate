@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Routes from '../../../Routes';
 
 import '../../base-ui/_common/basic.scss';
 
@@ -27,7 +28,7 @@ function MainPage (props) {
                     <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, quo!</Paragraph>
                 </Layout.Content>
                 <Layout.Content vPadded={true} hPadded={true}>
-                    <Button text="Hello" onClick={() => props.history.push('/hello')}/>
+                    <Button text="Hello" onClick={() => props.history.push(Routes.HELLO.url)}/>
                 </Layout.Content>
                 <Layout.Footer>
                     <Footer/>

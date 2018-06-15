@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Helpers from '../../common/Helpers.js';
 
 import LayoutHeader from './LayoutHeader';
 import LayoutContent from './LayoutContent';
@@ -8,23 +8,30 @@ import LayoutFooter from './LayoutFooter';
 
 import './Layout.scss';
 
-const LayoutAlignment = {
+const Alignment = {
     STRETCHED_CONTENT: 'layout--stretched-content',
     CENTERED_CONTENT: 'layout--centered-content'
 };
 
 const propTypes = {
-    alignment: (props, propName, componentName) => Helpers.validateSpecification(props, propName, componentName, Layout.Alignment, 'Layout.Alignment'),
+    alignment: PropTypes.oneOf(Object.values(Alignment)),
+    backgroundInherited: PropTypes.bool,
+};
+
+const defaultProps = {
+    backgroundInherited: false,
 };
 
 function Layout (props) {
     const {
         children,
         alignment,
+        backgroundInherited,
     } = props;
 
     const classnames = classNames({
         'layout': true,
+        'layout--background-inherited': backgroundInherited,
         [ alignment ]: alignment
     });
 
@@ -36,7 +43,9 @@ function Layout (props) {
 }
 
 Layout.propTypes = propTypes;
-Layout.Alignment = LayoutAlignment;
+Layout.defaultProps = defaultProps;
+
+Layout.Alignment = Alignment;
 
 Layout.Header = LayoutHeader;
 Layout.Content = LayoutContent;

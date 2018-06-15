@@ -1,7 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './Icon.scss';
+
+const Size = {
+    SMALL: 'icon--sm',
+    MEDIUM: 'icon--md',
+    LARGE: 'icon--lg',
+    STRETCH: 'icon--stretch'
+};
 
 const propTypes = {
     /** Name of the icon is a String without '#' char, used in 'use xlinkHref' */
@@ -18,18 +26,7 @@ const propTypes = {
     },
 
     /** size: Icon.Size.SMALL */
-    size: function (props, propName, componentName) {
-        if (props[ propName ] && Object.values(Icon.Size).indexOf(props[ propName ]) === -1) {
-            return new Error(`Incorrect value in '${propName}' prop.`);
-        }
-    }
-};
-
-const Size = {
-    SMALL: 'icon--sm',
-    MEDIUM: 'icon--md',
-    LARGE: 'icon--lg',
-    STRETCH: 'icon--stretch'
+    size: PropTypes.oneOf(Object.values(Size)),
 };
 
 const defaultProps = {

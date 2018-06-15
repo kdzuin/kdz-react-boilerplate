@@ -25,7 +25,7 @@ function Header (props) {
         isActive: 'is-active'
     };
 
-    const links = Routes.filter(function (item) {
+    const links = Object.values(Routes).filter(function (item) {
         return item.showInHeader;
     });
 

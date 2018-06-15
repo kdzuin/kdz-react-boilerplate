@@ -1,8 +1,8 @@
 import MainPage from './components/features/MainPage/MainPage';
 import HelloPage from './components/features/HelloPage/HelloPage';
 
-const Routes = [
-    {
+const Routes = {
+    MAIN: {
         exact: true,
         url: '/',
         label: 'Main page',
@@ -10,13 +10,13 @@ const Routes = [
         showInHeader: false,
         showInFooter: true
     },
-    {
+    HELLO: {
         url: '/hello',
         label: 'Hello page',
         component: HelloPage,
         showInHeader: true,
-        showInFooter: true,
-    }
-];
+        showInFooter: true
+    },
+};
 
 export default Routes;

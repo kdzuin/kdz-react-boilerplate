@@ -1,8 +1,9 @@
 import React from 'react';
+import Routes from '../../../Routes';
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
+
 import './Footer.scss';
-import Routes from '../../../Routes';
 
 function Footer (props) {
 
@@ -25,7 +26,7 @@ function Footer (props) {
         isActive: 'is-active'
     };
 
-    const links = Routes.filter(function (item) {
+    const links = Object.values(Routes).filter(function (item) {
         return item.showInFooter;
     });
 

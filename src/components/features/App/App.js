@@ -12,12 +12,12 @@ function App () {
     return (
         <Router>
             <Switch>
-                {Routes.map(function (route, key) {
+                {Object.keys(Routes).map(function (key) {
                     return (
                         <Route
-                            exact={route.exact}
-                            path={route.url}
-                            component={route.component}
+                            exact={Routes[key].exact}
+                            path={Routes[key].url}
+                            component={Routes[key].component}
                             key={key}
                         />
                     )

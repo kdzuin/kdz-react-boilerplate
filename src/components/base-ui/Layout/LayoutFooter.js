@@ -1,5 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+const propTypes = {
+    vPadded: PropTypes.bool,
+    hPadded: PropTypes.bool,
+};
+
+const defaultProps = {
+    vPadded: false,
+    hPadded: false,
+};
 
 function LayoutFooter (props) {
     const {
@@ -16,5 +27,8 @@ function LayoutFooter (props) {
         </div>
     )
 }
+
+LayoutFooter.propTypes = propTypes;
+LayoutFooter.defaultProps = defaultProps;
 
 export default LayoutFooter;
