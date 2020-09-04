@@ -54,7 +54,7 @@
     "styleguide:build": "styleguidist build"
   },
   "devDependencies": {
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.13.1",
     "react-styleguidist": "^6.2.0",
     "sass-loader": "^6.0.6",
     "webpack": "^3.8.1"
